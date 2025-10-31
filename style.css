@@ -131,9 +131,9 @@ body {
   line-height: 1.03;
   margin-bottom: 8px;
 }
-.home_content h3 {
-  font-size: clamp(18px, 3.2vw, 30px);
-  font-weight: 500;
+.home_content h2 {
+  font-size: 21px;
+  font-weight: 300;
   color: #a71842;
   margin-bottom: 18px;
 }
@@ -804,7 +804,7 @@ body {
 .contact {
   padding: 80px 5%;
   color: #eee;
- background-color: #0f0f0f;
+  background-color: #0f0f0f;
 }
 
 .contact .heading {
@@ -916,8 +916,8 @@ body {
 [data-animate] {
   opacity: 0;
   transform: translateY(20px) scale(0.995);
-  transition: opacity 560ms cubic-bezier(.22,.9,.35,1),
-              transform 560ms cubic-bezier(.22,.9,.35,1);
+  transition: opacity 560ms cubic-bezier(0.22, 0.9, 0.35, 1),
+    transform 560ms cubic-bezier(0.22, 0.9, 0.35, 1);
   will-change: opacity, transform;
   /* optional stagger variable */
   --delay: 0s;
@@ -943,24 +943,32 @@ body {
 .header {
   transform: translateY(-8px);
   opacity: 0;
-  animation: headerDrop 420ms cubic-bezier(.2,.9,.3,1) forwards;
+  animation: headerDrop 420ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
   animation-delay: 120ms;
 }
 @keyframes headerDrop {
-  to { transform: translateY(0); opacity: 1; }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* subtle floating effect for hero image */
 .image img {
   transform-origin: center;
-  transition: transform 700ms cubic-bezier(.2,.9,.3,1), box-shadow 400ms;
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 400ms;
 }
 .image img.floating {
   animation: floatY 6s ease-in-out infinite;
 }
 @keyframes floatY {
-  0%,100% { transform: translateY(-4px) scale(1); }
-  50% { transform: translateY(6px) scale(1.003); }
+  0%,
+  100% {
+    transform: translateY(-4px) scale(1);
+  }
+  50% {
+    transform: translateY(6px) scale(1.003);
+  }
 }
 
 /* stronger hover micro-interaction for primary buttons */
@@ -974,24 +982,38 @@ body {
 }
 
 /* slight pop on product/service hover */
-.product-box, .service-box {
-  transition: transform 260ms cubic-bezier(.22,.9,.35,1), box-shadow 260ms;
+.product-box,
+.service-box {
+  transition: transform 260ms cubic-bezier(0.22, 0.9, 0.35, 1), box-shadow 260ms;
   will-change: transform, box-shadow;
 }
-.product-box:hover, .service-box:hover {
+.product-box:hover,
+.service-box:hover {
   transform: translateY(-10px);
 }
 
 /* lightbox open animation */
 .lightbox-overlay.open .lightbox-content {
-  animation: lightboxIn 280ms cubic-bezier(.2,.9,.3,1);
+  animation: lightboxIn 280ms cubic-bezier(0.2, 0.9, 0.3, 1);
 }
 @keyframes lightboxIn {
-  from { transform: translateY(12px) scale(0.995); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
+  from {
+    transform: translateY(12px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 /* accessible focus-visible animation subtle */
 :focus-visible {
   transition: box-shadow 140ms ease, outline-color 140ms;
+}
+
+/* small style for the inline control if you want it to look like a link */
+.learn-more {
+  margin-top: 12px;
+  display: inline-block;
 }
