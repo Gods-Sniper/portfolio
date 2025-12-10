@@ -26,32 +26,110 @@
     </header>
 
     <main>
+      <section class="products-hero">
+        <div class="container">
+          <h1>Selected Works</h1>
+          <p class="lead">
+            A curated selection of UI, UX and branding projects. Click a card to
+            view details and a full-size preview.
+          </p>
+        </div>
+      </section>
+
       <section id="products" class="products all-products">
-        <h2 class="heading">All Products</h2>
-        <div class="products-container">
-          <div class="product-box">
-            <img src="assests/projects/product1.png" alt="Product 1" />
-            <h3>Product 1</h3>
+        <div class="container">
+          <h2 class="heading">All Products</h2>
+
+          <div class="products-toolbar">
+            <div class="filter">
+              <button class="chip active">All</button>
+              <button class="chip">UI/UX</button>
+              <button class="chip">Web</button>
+              <button class="chip">Brand</button>
+            </div>
+            <div class="sort">
+              <small>Sort:</small>
+              <select>
+                <option>Newest</option>
+                <option>Oldest</option>
+              </select>
+            </div>
           </div>
-          <div class="product-box">
-            <img src="assests/projects/product2.png" alt="Product 2" />
-            <h3>Product 2</h3>
-          </div>
-          <div class="product-box">
-            <img src="assests/projects/product3.png" alt="Product 3" />
-            <h3>Product 3</h3>
-          </div>
-          <div class="product-box">
-            <img src="assests/projects/product1.png" alt="Product 4" />
-            <h3>Product 4</h3>
-          </div>
-          <div class="product-box">
-            <img src="assests/projects/product2.png" alt="Product 5" />
-            <h3>Product 5</h3>
-          </div>
-          <div class="product-box">
-            <img src="assests/projects/product3.png" alt="Product 6" />
-            <h3>Product 6</h3>
+
+          <div class="products-grid">
+            <article
+              class="product-box"
+              data-full="assests/projects/product1-large.png"
+              data-description="A modern landing page and component library built with responsive layout and clear CTAs."
+            >
+              <figure class="thumb">
+                <img src="assests/projects/product1.png" alt="Product 1" />
+              </figure>
+              <div class="product-body">
+                <h3>Landing Page — Project One</h3>
+                <p class="meta">UI / Web • 2024</p>
+                <p class="excerpt">
+                  Clean responsive landing with modular components and fast load
+                  performance.
+                </p>
+                <div class="product-actions">
+                  <button class="view-btn">Preview</button>
+                  <a class="view-more-btn" href="./case-study-product1.html"
+                    >Case Study</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="product-box"
+              data-full="assests/projects/product2-large.png"
+              data-description="A mobile-first app UI focusing on onboarding and conversion flows."
+            >
+              <figure class="thumb">
+                <img src="assests/projects/product2.png" alt="Product 2" />
+              </figure>
+              <div class="product-body">
+                <h3>Mobile App — Project Two</h3>
+                <p class="meta">App Design • 2023</p>
+                <p class="excerpt">
+                  Smooth onboarding with micro-interactions and clear
+                  information hierarchy.
+                </p>
+                <div class="product-actions">
+                  <button class="view-btn">Preview</button>
+                  <a class="view-more-btn" href="./case-study-product2.html"
+                    >Case Study</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="product-box"
+              data-full="assests/projects/product3-large.png"
+              data-description="Brand identity and marketing assets for a modern startup."
+            >
+              <figure class="thumb">
+                <img src="assests/projects/product3.png" alt="Product 3" />
+              </figure>
+              <div class="product-body">
+                <h3>Brand Identity — Project Three</h3>
+                <p class="meta">Brand • 2022</p>
+                <p class="excerpt">
+                  Logo system, color palette and collateral designed for
+                  scalability.
+                </p>
+                <div class="product-actions">
+                  <button class="view-btn">Preview</button>
+                  <a class="view-more-btn" href="./case-study-product3.html"
+                    >Case Study</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- add more product cards as needed -->
           </div>
         </div>
       </section>

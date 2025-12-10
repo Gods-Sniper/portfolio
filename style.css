@@ -1017,3 +1017,1491 @@ body {
   margin-top: 12px;
   display: inline-block;
 }
+
+/* product page layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* hero */
+.products-hero {
+  padding: 48px 0 28px;
+  background: linear-gradient(180deg, rgba(167,23,66,0.03), transparent);
+}
+.products-hero .container h1 {
+  font-size: 34px;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.products-hero .lead {
+  color: #d7d7d7;
+  max-width: 820px;
+  margin-top: 6px;
+}
+
+/* toolbar */
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+.chip {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.active {
+  background: #a71842;
+  border-color: #a71842;
+  box-shadow: 0 8px 24px rgba(167,23,66,0.12);
+}
+
+/* grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* product card */
+.product-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(167,23,66,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.product-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+
+/* thumbnail */
+.product-box .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: block;
+}
+.product-box .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 280ms ease;
+}
+.product-box:hover .thumb img {
+  transform: scale(1.03);
+}
+
+/* body */
+.product-body {
+  padding: 12px 14px 16px;
+}
+.product-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #fff;
+}
+.product-body .meta {
+  color: #cfcfcf;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.product-body .excerpt {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* actions */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.view-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+.view-btn:hover { background: rgba(255,255,255,0.03); }
+.view-more-btn {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #a71842;
+  color: #fff;
+  border: 1px solid #a71842;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products-toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .products-hero .container h1 { text-align: center; }
+}
+
+/* reuse lightbox styles already added earlier */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  padding: 24px;
+}
+.lightbox-overlay.open {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 1200px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  background: #111;
+}
+.lightbox-caption {
+  color: #eee;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+.lightbox-close:focus {
+  outline: 2px solid rgba(167, 23, 66, 0.28);
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .lightbox-content {
+    max-width: 900px;
+  }
+}
+@media (max-width: 480px) {
+  .lightbox-content {
+    padding: 10px;
+  }
+  .lightbox-close {
+    font-size: 26px;
+  }
+}
+
+/* Contact section */
+.contact {
+  padding: 80px 5%;
+  color: #eee;
+  background-color: #0f0f0f;
+}
+
+.contact .heading {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #a71842;
+  margin-bottom: 22px;
+}
+
+/* form layout */
+.contact form {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 18px;
+  align-items: start;
+}
+
+/* make textarea span full width */
+.contact form textarea {
+  grid-column: 1 / -1;
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* inputs / textarea shared style */
+.contact form input[type="text"],
+.contact form input[type="email"],
+.contact form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #eaeaea;
+  font-size: 15px;
+  transition: box-shadow 150ms ease, border-color 150ms ease,
+    transform 120ms ease;
+  outline: none;
+}
+
+/* placeholder & focus */
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: rgba(235, 235, 235, 0.45);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  border-color: rgba(167, 23, 66, 0.9);
+  box-shadow: 0 6px 20px rgba(167, 23, 66, 0.06);
+  transform: translateY(-2px);
+}
+
+/* submit button */
+.contact form .btn1,
+.contact form button.btn1 {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #a71842;
+  border: 1px solid #a71842;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 140ms ease;
+}
+
+/* center the button on small screens */
+@media (max-width: 768px) {
+  .contact form {
+    grid-template-columns: 1fr;
+  }
+  .contact form .btn1,
+  .contact form button.btn1 {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* accessibility focus ring for keyboard users */
+.contact form .btn1:focus,
+.contact form button.btn1:focus,
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 3px solid rgba(167, 23, 66,0.18);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* small tweaks for very small screens */
+@media (max-width: 420px) {
+  .contact {
+    padding: 48px 4%;
+  }
+  .contact .heading {
+    font-size: 28px;
+  }
+  .contact form textarea {
+    min-height: 130px;
+  }
+}
+
+/* --- Entrance / Reveal animations --- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  transition: opacity 560ms cubic-bezier(0.22, 0.9, 0.35, 1),
+    transform 560ms cubic-bezier(0.22, 0.9, 0.35, 1);
+  will-change: opacity, transform;
+  /* optional stagger variable */
+  --delay: 0s;
+  transition-delay: var(--delay);
+}
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* variants */
+[data-animate="fade-left"] {
+  transform: translateX(-18px) scale(0.995);
+}
+[data-animate="fade-right"] {
+  transform: translateX(18px) scale(0.995);
+}
+[data-animate="zoom"] {
+  transform: scale(0.96);
+}
+
+/* header drop on load (subtle) */
+.header {
+  transform: translateY(-8px);
+  opacity: 0;
+  animation: headerDrop 420ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  animation-delay: 120ms;
+}
+@keyframes headerDrop {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* subtle floating effect for hero image */
+.image img {
+  transform-origin: center;
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 400ms;
+}
+.image img.floating {
+  animation: floatY 6s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(-4px) scale(1);
+  }
+  50% {
+    transform: translateY(6px) scale(1.003);
+  }
+}
+
+/* stronger hover micro-interaction for primary buttons */
+.btn a.btn2 {
+  transition: transform 180ms ease, box-shadow 220ms ease, filter 180ms;
+  will-change: transform, box-shadow;
+}
+.btn a.btn2:hover {
+  transform: translateY(-4px) scale(1.01);
+  filter: saturate(1.06);
+}
+
+/* slight pop on product/service hover */
+.product-box,
+.service-box {
+  transition: transform 260ms cubic-bezier(0.22, 0.9, 0.35, 1), box-shadow 260ms;
+  will-change: transform, box-shadow;
+}
+.product-box:hover,
+.service-box:hover {
+  transform: translateY(-10px);
+}
+
+/* lightbox open animation */
+.lightbox-overlay.open .lightbox-content {
+  animation: lightboxIn 280ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+@keyframes lightboxIn {
+  from {
+    transform: translateY(12px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* accessible focus-visible animation subtle */
+:focus-visible {
+  transition: box-shadow 140ms ease, outline-color 140ms;
+}
+
+/* small style for the inline control if you want it to look like a link */
+.learn-more {
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* product page layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* hero */
+.products-hero {
+  padding: 48px 0 28px;
+  background: linear-gradient(180deg, rgba(167,23,66,0.03), transparent);
+}
+.products-hero .container h1 {
+  font-size: 34px;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.products-hero .lead {
+  color: #d7d7d7;
+  max-width: 820px;
+  margin-top: 6px;
+}
+
+/* toolbar */
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+.chip {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.active {
+  background: #a71842;
+  border-color: #a71842;
+  box-shadow: 0 8px 24px rgba(167,23,66,0.12);
+}
+
+/* grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* product card */
+.product-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(167,23,66,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.product-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+
+/* thumbnail */
+.product-box .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: block;
+}
+.product-box .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 280ms ease;
+}
+.product-box:hover .thumb img {
+  transform: scale(1.03);
+}
+
+/* body */
+.product-body {
+  padding: 12px 14px 16px;
+}
+.product-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #fff;
+}
+.product-body .meta {
+  color: #cfcfcf;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.product-body .excerpt {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* actions */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.view-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+.view-btn:hover { background: rgba(255,255,255,0.03); }
+.view-more-btn {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #a71842;
+  color: #fff;
+  border: 1px solid #a71842;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products-toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .products-hero .container h1 { text-align: center; }
+}
+
+/* reuse lightbox styles already added earlier */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  padding: 24px;
+}
+.lightbox-overlay.open {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 1200px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  background: #111;
+}
+.lightbox-caption {
+  color: #eee;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+.lightbox-close:focus {
+  outline: 2px solid rgba(167, 23, 66, 0.28);
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .lightbox-content {
+    max-width: 900px;
+  }
+}
+@media (max-width: 480px) {
+  .lightbox-content {
+    padding: 10px;
+  }
+  .lightbox-close {
+    font-size: 26px;
+  }
+}
+
+/* Contact section */
+.contact {
+  padding: 80px 5%;
+  color: #eee;
+  background-color: #0f0f0f;
+}
+
+.contact .heading {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #a71842;
+  margin-bottom: 22px;
+}
+
+/* form layout */
+.contact form {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 18px;
+  align-items: start;
+}
+
+/* make textarea span full width */
+.contact form textarea {
+  grid-column: 1 / -1;
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* inputs / textarea shared style */
+.contact form input[type="text"],
+.contact form input[type="email"],
+.contact form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #eaeaea;
+  font-size: 15px;
+  transition: box-shadow 150ms ease, border-color 150ms ease,
+    transform 120ms ease;
+  outline: none;
+}
+
+/* placeholder & focus */
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: rgba(235, 235, 235, 0.45);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  border-color: rgba(167, 23, 66, 0.9);
+  box-shadow: 0 6px 20px rgba(167, 23, 66, 0.06);
+  transform: translateY(-2px);
+}
+
+/* submit button */
+.contact form .btn1,
+.contact form button.btn1 {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #a71842;
+  border: 1px solid #a71842;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 140ms ease;
+}
+
+/* center the button on small screens */
+@media (max-width: 768px) {
+  .contact form {
+    grid-template-columns: 1fr;
+  }
+  .contact form .btn1,
+  .contact form button.btn1 {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* accessibility focus ring for keyboard users */
+.contact form .btn1:focus,
+.contact form button.btn1:focus,
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 3px solid rgba(167, 23, 66, 0.18);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* small tweaks for very small screens */
+@media (max-width: 420px) {
+  .contact {
+    padding: 48px 4%;
+  }
+  .contact .heading {
+    font-size: 28px;
+  }
+  .contact form textarea {
+    min-height: 130px;
+  }
+}
+
+/* --- Entrance / Reveal animations --- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  transition: opacity 560ms cubic-bezier(0.22, 0.9, 0.35, 1),
+    transform 560ms cubic-bezier(0.22, 0.9, 0.35, 1);
+  will-change: opacity, transform;
+  /* optional stagger variable */
+  --delay: 0s;
+  transition-delay: var(--delay);
+}
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* variants */
+[data-animate="fade-left"] {
+  transform: translateX(-18px) scale(0.995);
+}
+[data-animate="fade-right"] {
+  transform: translateX(18px) scale(0.995);
+}
+[data-animate="zoom"] {
+  transform: scale(0.96);
+}
+
+/* header drop on load (subtle) */
+.header {
+  transform: translateY(-8px);
+  opacity: 0;
+  animation: headerDrop 420ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  animation-delay: 120ms;
+}
+@keyframes headerDrop {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* subtle floating effect for hero image */
+.image img {
+  transform-origin: center;
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 400ms;
+}
+.image img.floating {
+  animation: floatY 6s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(-4px) scale(1);
+  }
+  50% {
+    transform: translateY(6px) scale(1.003);
+  }
+}
+
+/* stronger hover micro-interaction for primary buttons */
+.btn a.btn2 {
+  transition: transform 180ms ease, box-shadow 220ms ease, filter 180ms;
+  will-change: transform, box-shadow;
+}
+.btn a.btn2:hover {
+  transform: translateY(-4px) scale(1.01);
+  filter: saturate(1.06);
+}
+
+/* slight pop on product/service hover */
+.product-box,
+.service-box {
+  transition: transform 260ms cubic-bezier(0.22, 0.9, 0.35, 1), box-shadow 260ms;
+  will-change: transform, box-shadow;
+}
+.product-box:hover,
+.service-box:hover {
+  transform: translateY(-10px);
+}
+
+/* lightbox open animation */
+.lightbox-overlay.open .lightbox-content {
+  animation: lightboxIn 280ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+@keyframes lightboxIn {
+  from {
+    transform: translateY(12px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* accessible focus-visible animation subtle */
+:focus-visible {
+  transition: box-shadow 140ms ease, outline-color 140ms;
+}
+
+/* small style for the inline control if you want it to look like a link */
+.learn-more {
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* product page layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* hero */
+.products-hero {
+  padding: 48px 0 28px;
+  background: linear-gradient(180deg, rgba(167,23,66,0.03), transparent);
+}
+.products-hero .container h1 {
+  font-size: 34px;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.products-hero .lead {
+  color: #d7d7d7;
+  max-width: 820px;
+  margin-top: 6px;
+}
+
+/* toolbar */
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+.chip {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.active {
+  background: #a71842;
+  border-color: #a71842;
+  box-shadow: 0 8px 24px rgba(167,23,66,0.12);
+}
+
+/* grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* product card */
+.product-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(167,23,66,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.product-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+
+/* thumbnail */
+.product-box .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: block;
+}
+.product-box .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 280ms ease;
+}
+.product-box:hover .thumb img {
+  transform: scale(1.03);
+}
+
+/* body */
+.product-body {
+  padding: 12px 14px 16px;
+}
+.product-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #fff;
+}
+.product-body .meta {
+  color: #cfcfcf;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.product-body .excerpt {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* actions */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.view-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+.view-btn:hover { background: rgba(255,255,255,0.03); }
+.view-more-btn {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #a71842;
+  color: #fff;
+  border: 1px solid #a71842;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products-toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .products-hero .container h1 { text-align: center; }
+}
+
+/* reuse lightbox styles already added earlier */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  padding: 24px;
+}
+.lightbox-overlay.open {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 1200px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  background: #111;
+}
+.lightbox-caption {
+  color: #eee;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+.lightbox-close:focus {
+  outline: 2px solid rgba(167, 23, 66, 0.28);
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .lightbox-content {
+    max-width: 900px;
+  }
+}
+@media (max-width: 480px) {
+  .lightbox-content {
+    padding: 10px;
+  }
+  .lightbox-close {
+    font-size: 26px;
+  }
+}
+
+/* Contact section */
+.contact {
+  padding: 80px 5%;
+  color: #eee;
+  background-color: #0f0f0f;
+}
+
+.contact .heading {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #a71842;
+  margin-bottom: 22px;
+}
+
+/* form layout */
+.contact form {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 18px;
+  align-items: start;
+}
+
+/* make textarea span full width */
+.contact form textarea {
+  grid-column: 1 / -1;
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* inputs / textarea shared style */
+.contact form input[type="text"],
+.contact form input[type="email"],
+.contact form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #eaeaea;
+  font-size: 15px;
+  transition: box-shadow 150ms ease, border-color 150ms ease,
+    transform 120ms ease;
+  outline: none;
+}
+
+/* placeholder & focus */
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: rgba(235, 235, 235, 0.45);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  border-color: rgba(167, 23, 66, 0.9);
+  box-shadow: 0 6px 20px rgba(167, 23, 66, 0.06);
+  transform: translateY(-2px);
+}
+
+/* submit button */
+.contact form .btn1,
+.contact form button.btn1 {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #a71842;
+  border: 1px solid #a71842;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 140ms ease;
+}
+
+/* center the button on small screens */
+@media (max-width: 768px) {
+  .contact form {
+    grid-template-columns: 1fr;
+  }
+  .contact form .btn1,
+  .contact form button.btn1 {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* accessibility focus ring for keyboard users */
+.contact form .btn1:focus,
+.contact form button.btn1:focus,
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 3px solid rgba(167, 23, 66, 0.18);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* small tweaks for very small screens */
+@media (max-width: 420px) {
+  .contact {
+    padding: 48px 4%;
+  }
+  .contact .heading {
+    font-size: 28px;
+  }
+  .contact form textarea {
+    min-height: 130px;
+  }
+}
+
+/* --- Entrance / Reveal animations --- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  transition: opacity 560ms cubic-bezier(0.22, 0.9, 0.35, 1),
+    transform 560ms cubic-bezier(0.22, 0.9, 0.35, 1);
+  will-change: opacity, transform;
+  /* optional stagger variable */
+  --delay: 0s;
+  transition-delay: var(--delay);
+}
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* variants */
+[data-animate="fade-left"] {
+  transform: translateX(-18px) scale(0.995);
+}
+[data-animate="fade-right"] {
+  transform: translateX(18px) scale(0.995);
+}
+[data-animate="zoom"] {
+  transform: scale(0.96);
+}
+
+/* header drop on load (subtle) */
+.header {
+  transform: translateY(-8px);
+  opacity: 0;
+  animation: headerDrop 420ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  animation-delay: 120ms;
+}
+@keyframes headerDrop {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* subtle floating effect for hero image */
+.image img {
+  transform-origin: center;
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 400ms;
+}
+.image img.floating {
+  animation: floatY 6s ease-in-out infinite;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(-4px) scale(1);
+  }
+  50% {
+    transform: translateY(6px) scale(1.003);
+  }
+}
+
+/* stronger hover micro-interaction for primary buttons */
+.btn a.btn2 {
+  transition: transform 180ms ease, box-shadow 220ms ease, filter 180ms;
+  will-change: transform, box-shadow;
+}
+.btn a.btn2:hover {
+  transform: translateY(-4px) scale(1.01);
+  filter: saturate(1.06);
+}
+
+/* slight pop on product/service hover */
+.product-box,
+.service-box {
+  transition: transform 260ms cubic-bezier(0.22, 0.9, 0.35, 1), box-shadow 260ms;
+  will-change: transform, box-shadow;
+}
+.product-box:hover,
+.service-box:hover {
+  transform: translateY(-10px);
+}
+
+/* lightbox open animation */
+.lightbox-overlay.open .lightbox-content {
+  animation: lightboxIn 280ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+@keyframes lightboxIn {
+  from {
+    transform: translateY(12px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* accessible focus-visible animation subtle */
+:focus-visible {
+  transition: box-shadow 140ms ease, outline-color 140ms;
+}
+
+/* small style for the inline control if you want it to look like a link */
+.learn-more {
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* product page layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* hero */
+.products-hero {
+  padding: 48px 0 28px;
+  background: linear-gradient(180deg, rgba(167,23,66,0.03), transparent);
+}
+.products-hero .container h1 {
+  font-size: 34px;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.products-hero .lead {
+  color: #d7d7d7;
+  max-width: 820px;
+  margin-top: 6px;
+}
+
+/* toolbar */
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 18px 0 12px;
+}
+.chip {
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.active {
+  background: #a71842;
+  border-color: #a71842;
+  box-shadow: 0 8px 24px rgba(167,23,66,0.12);
+}
+
+/* grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* product card */
+.product-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(167,23,66,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.product-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+
+/* thumbnail */
+.product-box .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: block;
+}
+.product-box .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 280ms ease;
+}
+.product-box:hover .thumb img {
+  transform: scale(1.03);
+}
+
+/* body */
+.product-body {
+  padding: 12px 14px 16px;
+}
+.product-body h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #fff;
+}
+.product-body .meta {
+  color: #cfcfcf;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.product-body .excerpt {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* actions */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.view-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+.view-btn:hover { background: rgba(255,255,255,0.03); }
+.view-more-btn {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #a71842;
+  color: #fff;
+  border: 1px solid #a71842;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products-toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .products-hero .container h1 { text-align: center; }
+}
+
+/* reuse lightbox styles already added earlier */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  padding: 24px;
+}
+.lightbox-overlay.open {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 1200px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  background: #111;
+}
+.lightbox-caption {
+  color: #eee;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
